@@ -280,9 +280,9 @@ function prepareTable(info) {
         item =
             {
               Key: up,
+              keyText: '../',
               LastModified: '',
               Size: '',
-              keyText: '../',
               href: S3BL_IGNORE_PATH ? '?prefix=' + up : '../'
             },
         row = renderRow(item, cols);
@@ -317,9 +317,9 @@ function encodePath(path) {
 
 function renderRow(item, cols) {
   var row = '';
+  row += '<a href="' + item.href + '">' + item.keyText + '</a>';
   row += padRight(item.LastModified, cols[1]) + '  ';
   row += padRight(item.Size, cols[2]);
-  row += '<a href="' + item.href + '">' + item.keyText + '</a>';
   return row;
 }
 
